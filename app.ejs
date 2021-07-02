@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>Marvin App</title>
+		<meta charset="utf-8">
+		<style>
+            body{
+                    background-color: FCFCFC;
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: 26547C;
+            }
+            #header {
+                font-family: Arial, Helvetica, sans-serif;
+                color: 26547C;
+                text-align: center;
+                font-size: 30ch;
+                background-color: FCFCFC;
+            }
+
+            p{
+                font-family: Arial, Helvetica, sans-serif;
+                color: 26547C;
+                text-align: center;
+            }
+
+            #events {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+              color: white;
+              background-color: 07DAA1;
+            }
+            
+            #events td, #events th {
+              border: 1px solid 26547C;
+              padding: 8px;
+            }
+            
+            #events tr:nth-child(even){background-color: 06B284;}
+            
+            #events tr:hover {background-color: 39F9C6;}
+            
+            #events th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: 046249;
+              color: white;
+            }
+        </style>
+	</head>
+	<body>
+		<div>
+			<h1 id="header">42 Events</h1>
+			<p>by antmarti</p>
+			<br></br>
+		</div>
+		<div >
+			<div id="formContent">
+				</div>
+                <div>
+                    <h1>There are <%= campus.users_count %> users registered in Madrid campus</h1>
+                </div>
+                <div>
+                    <table id="events">
+                        <tr>
+                            <th>Event</th>
+                            <th>Description</th>
+                            <th>Location</th>
+                            <th>Number of subscribers</th>
+                            <th>Date</th>
+                        </tr>
+                    <% for (var i = 0; i < events.length; i++) { %>
+                        <tr>
+                            <td> <%= events[i].name %> </td>
+                            <td><%= events[i].description %> </td>
+                            <td><%= events[i].location %> </td>
+                            <td> <%= events[i].nbr_subscribers %> </td>
+                            <td> <%= events[i].begin_at.split("T")[0] %> </td>
+                        </tr>
+                    <% } %>
+                </div>
+			</div>
+		</div>
+	</body>
+</html>
